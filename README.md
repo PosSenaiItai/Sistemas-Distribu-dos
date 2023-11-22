@@ -12,6 +12,7 @@ O servidor será implementado em um container Docker. O código do servidor é o
 
 # Python
 
+
 import socket
 
 def hello(name):
