@@ -6,26 +6,13 @@ Arquitetura do sistema
 
 Nosso sistema RPC terá dois componentes: um servidor e um cliente. O servidor será responsável por implementar o procedimento a ser chamado remotamente. O cliente será responsável por enviar uma requisição ao servidor e receber a resposta.
 
-Implementação do servidor
+# Implementação do servidor
 
-O servidor será implementado em um container Docker. O código do servidor é o seguinte:
+O servidor será implementado em um container Docker. O código do servidor é o hello.ipynb:
 
-import socket
+Esta função hello() recebe o nome de uma pessoa como argumento e retorna uma mensagem de saudação. A função main() do servidor cria um socket TCP e o associa à porta 8080. Em seguida, o servidor fica ouvindo requisições de clientes. Quando um cliente se conecta, o servidor recebe o nome da pessoa a ser saudada e chama a função hello() para retornar a mensagem de saudação. A mensagem de saudação é então enviada de volta ao cliente.
 
-def hello(name):
-    return f"Olá, {name}!"
+# Implementação do cliente
 
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    s.bind(("0.0.0.0", 8080))
-    s.listen(1)
-
-    conn, addr = s.accept()
-
-    data = conn.recv(1024)
-    name = data.decode("utf-8")
-
-    response = hello(name)
-
-    conn.sendall(response.encode("utf-8"))
-    conn.close()
+O cliente também será implementado em um container Docker. O código do cliente é o cliente.ipynb:
 
