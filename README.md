@@ -10,23 +10,4 @@ Implementação do servidor
 
 O servidor será implementado em um container Docker. O código do servidor é o seguinte:
 
-# Python
 
-import socket
-
-def hello(name):
-    return f"Olá, {name}!"
-
-with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as s:
-    s.bind(("0.0.0.0", 8080))
-    s.listen(1)
-
-    conn, addr = s.accept()
-
-    data = conn.recv(1024)
-    name = data.decode("utf-8")
-
-    response = hello(name)
-
-    conn.sendall(response.encode("utf-8"))
-    conn.close()
