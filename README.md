@@ -16,3 +16,40 @@ Esta função hello() recebe o nome de uma pessoa como argumento e retorna uma m
 
 O cliente também será implementado em um container Docker. O código do cliente é o cliente.ipynb:
 
+Esta função main() cria um socket TCP e o conecta ao servidor na porta 8080. Em seguida, a função solicita o nome do usuário e envia o nome para o servidor. O servidor então retorna a mensagem de saudação, que é impressa na tela do cliente.
+
+# Execução da demonstração
+
+Para executar a demonstração, precisamos criar dois containers Docker: um para o servidor e outro para o cliente. Podemos fazer isso usando os seguintes comandos:
+
+
+docker build -t server .
+docker build -t client .
+
+
+Estes comandos criarão dois containers Docker com os nomes server e client.
+Para iniciar o servidor, podemos usar o seguinte comando:
+
+
+docker run -p 8080:8080 server
+
+
+Este comando iniciará o servidor na porta 8080.
+Para iniciar o cliente, podemos usar o seguinte comando:
+
+
+docker run client
+
+
+Este comando iniciará o cliente e solicitará o nome do usuário.
+Após inserir o nome do usuário, o cliente enviará a requisição ao servidor. O servidor retornará a mensagem de saudação, que será impressa na tela do cliente.
+Exemplo de execução
+Após executar os comandos acima, podemos ver o seguinte resultado:
+
+
+Digite seu nome: João
+
+Olá, João!
+
+
+Neste exemplo, o nome do usuário é "João". O servidor retorna a mensagem "Olá, João!".
