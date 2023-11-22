@@ -1,5 +1,5 @@
 
-# Sistemas-Distribudos
+# Sistemas-Distribuidos
 Vamos implementar uma chamada de procedimento remoto (RPC) usando Docker e Python. RPC é um mecanismo de comunicação entre processos em sistemas distribuídos que permite que um processo invoque um procedimento em outro processo sem saber sua localização física.
 
 Arquitetura do sistema
